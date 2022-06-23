@@ -14,6 +14,7 @@ MAIN = main
 TARGET = poker.out
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
+LOGDATE = $(shell date +"%m/%d/%Y %H:%M")
 
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
@@ -31,3 +32,8 @@ clean:
 	@rm memlog.out
 	@rm gprof.txt
 	clear
+
+git: 
+	git add .
+	git commit -m "commit sent by lottmarcos on $(LOGDATE)"
+	git push
