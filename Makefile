@@ -37,3 +37,4 @@ git:
 	git add .
 	git commit -m "commit sent by lottmarcos on $(LOGDATE)"
 	git push
+	clear
