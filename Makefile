@@ -11,7 +11,7 @@ OUTPUT_FOLFER = ./output/
 
 # all sourcers, obs, and header files
 MAIN = main
-TARGET = poker.out
+TARGET = main.exe
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 LOGDATE = $(shell date +"%m/%d/%Y %H:%M")
@@ -23,14 +23,10 @@ all: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
 
 run:
-	./bin/poker.out
-	gprof ./bin/poker.out gmon.out > gprof.txt
+	./bin/main.exe
 
 clean: 
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLFER)* $(OUTPUT_FOLFER)*
-	@rm gmon.out
-	@rm memlog.out
-	@rm gprof.txt
 	clear
 
 git: 
