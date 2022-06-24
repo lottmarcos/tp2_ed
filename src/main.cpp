@@ -90,16 +90,19 @@ int main(int argc, char **argv) {
    string str, trash;
    while (input_file >> str) {
       if (str == ORDEM) {
-         cout << "cheguei em ordem" << endl;
-
+         //armazena a ordem
       }
 
       if (str == TEXTO) {
-         cout << "cheguei em texto" << endl;
-
+         // armazena as palavras do texto
+         //cria o array de words com as palavras em lowercase (palavra espaço palavra [count_words])
       }
 
    }
+
+   //cria todas as new_words das words
+   //ordena o array de words
+   //imprime o resultado
    
    return 0;
 }
