@@ -23,10 +23,11 @@ all: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
 
 run:
-	./bin/main.exe
+	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt"
 
 clean: 
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLFER)* $(OUTPUT_FOLFER)*
+	@rm gmon.out
 	clear
 
 git: 
