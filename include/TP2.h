@@ -14,16 +14,18 @@ using namespace std;
 // FUNÇÕES GLOBAIS
 void parse_args(int argc,char ** argv);
 void uso();
+string fix_word(string str); // deixa todas as letras em lowercase e elimina caracteres especiais
+int count_words(string str); // conta o numero de palavras em uma string
 
 //CLASSE WORD
-class word {
+class palavra {
    public:
 
    string nome;
-   string palavra;
+   string senha;
    int count;
 
-   word();
+   palavra();
    void set_word(string s);
 };
 

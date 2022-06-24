@@ -17,5 +17,32 @@ void uso() {
    cout << "\t-[s|S] : tamanho máximo das partições a usarem algoritmos simples" << endl;
    cout << endl;
 }
+string fix_word(string str) {
+   string aux;
+   //ASCII - upper[65 - 90] lower[97 - 122]
+   int diff = 'a' - 'A';
+   int x = str.length();
+   for (int i = 0; i <= x; i++) {
+      if (str[i] >= 'A' && str[i] <= 'Z') 
+         aux += str[i] + diff;
+      if (str[i] >= 'a' && str[i] <= 'z') 
+         aux += str[i];
+   }
+   
+   return aux;
+}
+int count_words(string str) {
+    stringstream s(str);
+    string word;
+ 
+    int count = 0;
+    while (s >> word)
+        count++;
+    return count;
+}
 
+//FUNÇÕES SOBRE PALAVRAS
 
+palavra::palavra() {
+   count = 0;
+}
