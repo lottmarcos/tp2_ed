@@ -88,15 +88,18 @@ int main(int argc, char **argv) {
 
    string ORDEM = "#ORDEM", TEXTO = "#TEXTO"; 
    string str, trash;
-   input_file >> str;
-   getline(input_file, trash);
-   if (str == ORDEM) {
-      cout << "cheguei aqui" << endl;
-      return 0;
+   while (input_file >> str) {
+      if (str == ORDEM) {
+         cout << "cheguei em ordem" << endl;
+
+      }
+
+      if (str == TEXTO) {
+         cout << "cheguei em texto" << endl;
+
+      }
+
    }
-
-
-
-   cout << "hello world!" << endl;
+   
    return 0;
 }
