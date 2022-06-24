@@ -32,7 +32,6 @@ clean:
 
 git: 
 	git add .
-	@echo "your commit text: ";\
-	read AGE ;\
+	@echo "your commit text: ";read AGE ;\
 	git commit -m "commit sent by lottmarcos on $(LOGDATE) - $$AGE"
 	git push
