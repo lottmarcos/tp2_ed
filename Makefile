@@ -23,7 +23,8 @@ all: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
 
 run:
-	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt" -m 4
+	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt" -m 4 -s 10
+	
 
 clean: 
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLFER)* $(OUTPUT_FOLFER)*

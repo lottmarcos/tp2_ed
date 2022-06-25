@@ -4,12 +4,9 @@
 #include <fstream>
 #include <sstream>
 #include <getopt.h>
+#include "memlog.h"
 
 using namespace std;
-
-//palavras devem estar em caixa baixa
-//O programa deve ser capaz de ignorar espaços em branco e elementos de 
-//pontuação (“,”, “.”, “!”, “?”, “:”, “;” e “_”) no final das palavras. 
 
 // CLASSE PALAVRA
 class palavra {

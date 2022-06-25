@@ -92,6 +92,8 @@ int main(int argc, char **argv) {
 
    // ----------------- INICIO DO PROGRAMA ----------------- //
 
+   defineFaseMemLog(0) // MEMLOG PARA O ARMAZENAMENTO DOS DADOS DO ARQUIVO DE ENTRADA
+   ;
    // variáveis iniciais e auxiliares
    string ORDEM = "#ORDEM", TEXTO = "#TEXTO"; 
    bool ordemaux = false;
@@ -138,6 +140,7 @@ int main(int argc, char **argv) {
    }
    input_file.close();
 
+   defineFaseMemLog(1);  // MEMLOG PARA A CRIAÇÃO DO ARRAY DE PALAVRAS
    // cria o array de palavras
    int array_counter = 0;
    int n_words = count_words(texto);
@@ -147,6 +150,7 @@ int main(int argc, char **argv) {
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
       for (int j = 0; j < n_words; j++) {
+         leMemLog((long int)(&(array_p)),sizeof(palavra), 0);
          if (array_p[j].nome == aux) {
             array_p[j].count++;
             add = false;
@@ -166,14 +170,17 @@ int main(int argc, char **argv) {
    }
    //cria as senhas das palavras
    for (int i = 0; i < array_counter; i++) {
+      escreveMemLog((long int)(&(palavras)),sizeof(palavra), 0);
       palavras[i].set_senha(ordem);
    }
 
+   defineFaseMemLog(2); // MEMLOG PARA ORDENAÇÃO DAS PALAVRAS
    //ordena o array de words
    if (S > array_counter) 
       quicksort(palavras, array_counter, M);
    else
       insertsort(palavras, array_counter);
+   
    
    //imprime o resultado
    for (int i = 0; i < array_counter; i++) {
@@ -181,6 +188,6 @@ int main(int argc, char **argv) {
    }
    output_file << "#FIM\n";
    output_file.close();
-   return 0;
+   return finalizaMemLog();
 }
 

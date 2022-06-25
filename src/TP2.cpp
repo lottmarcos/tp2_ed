@@ -23,6 +23,7 @@ string fix_word(string str) {
    int diff = 'a' - 'A';
    int x = str.length();
    for (int i = 0; i <= x; i++) {
+      escreveMemLog((long int)(&(str[i])),sizeof(string), 0);
       if (str[i] >= 'A' && str[i] <= 'Z') 
          aux += str[i] + diff;
       else if (str[i] >= 'a' && str[i] <= 'z') 
@@ -61,7 +62,8 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    
    int soma = esq+(esq + contador);
    x = A[soma/2]; // obtém o pivô x
-
+   
+   leMemLog((long int)(&(A)),sizeof(palavra), 0);
    do {
     while (x.senha > A[*i].senha) (*i)++;  
     while (x.senha < A[*j].senha) (*j)--;  
@@ -94,6 +96,7 @@ void insertsort(palavra *array, int n) {
       if (!trocou) {
          break;
       }
+      leMemLog((long int)(&(array)),sizeof(palavra), 0);
    }
 }
 
@@ -114,6 +117,7 @@ void palavra::set_senha(char array[]) {
    char c_aux;
    int x = aux1.length();
    for (int i = 0; i < x; i++) {
+      escreveMemLog((long int)(&(aux2)),sizeof(string), 0);
       if (aux1[i] == '-')
          aux2 += '-';
       
