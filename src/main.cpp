@@ -153,6 +153,7 @@ int main(int argc, char **argv) {
 
       add = true;
    }
+   
    palavra palavras[array_counter];
    for (int i = 0; i < array_counter; i++) {
          palavras[i] = array_p[i];
