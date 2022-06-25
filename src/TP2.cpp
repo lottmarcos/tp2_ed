@@ -43,11 +43,30 @@ int count_words(string str) {
         count++;
     return count;
 }
-void ordena_array(palavra array[], int n) {
-   for (int i = 0; i < n; i++) {
-      array[i].count = 99;
-   }
+void quickSort(palavra array[], int left, int right) {
+   int i = left, j = right;
+   palavra pivo = array[(left + right) / 2];
+   /* partição */
+   while (i <= j) {
+         while (array[i].senha < pivo.senha)
+               i++;
+         while (array[j].senha > pivo.senha)
+               j--;
+         if (i <= j) {
+               swap(array[i], array[j]);
+               i++; j--;
+         }
+   };
+   /* recursion */
+   if (left < j)
+         quickSort(&array[0], left, j);
+   if (i < right)
+         quickSort(&array[0], i, right);
 }
+void ordena_array(palavra array[], int n) {
+   quickSort(&array[0], 0, n);
+}
+
 
 //FUNÇÕES SOBRE PALAVRAS
 
@@ -64,7 +83,10 @@ void palavra::set_senha(char array[]) {
    int diff = 'a';
    int x = aux1.length();
    for (int i = 0; i < x; i++) {
-      aux2 += array[aux1[i] - diff];
+      if (aux1[i] == '-')
+         aux2 += '-';
+      else
+         aux2 += array[aux1[i] - diff];
    }
    senha = aux2;
 }

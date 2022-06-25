@@ -173,9 +173,8 @@ int main(int argc, char **argv) {
    }
    cout << endl << endl;
    for (int i = 0; i < array_counter; i++) {
-      cout << palavras[i].nome << ' ' << palavras[i].count << ' ' << palavras[i].senha << endl;
+      cout << palavras[i].nome << ' ' << palavras[i].count << endl;
    }
-   cout << endl << texto << endl;
    
    return 0;
 }

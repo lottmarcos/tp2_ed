@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <getopt.h>
+#define swap(A, B) {palavra c = A; A = B; B = c; }
 
 using namespace std;
 
@@ -29,5 +30,6 @@ void parse_args(int argc,char ** argv);
 void uso();
 string fix_word(string str); // deixa todas as letras em lowercase e elimina caracteres especiais
 int count_words(string str); // conta o numero de palavras em uma string
+void quickSort(palavra array[], int left, int right);
 void ordena_array(palavra array[], int n);
 

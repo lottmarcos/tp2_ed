@@ -1,0 +1,24 @@
+--------- entrada ----------
+
+#TEXTO
+O 
+peito 
+do 
+pe 
+do 
+pedro 
+e 
+preto
+#ORDEM
+B C D P F G H  J K L M N A Q R S T U O X Z W Y E I V
+
+--------- saida ----------
+
+do 2
+preto 1
+pe 1
+pedro 1
+peito 1
+o 1
+e 1
+#FIM
