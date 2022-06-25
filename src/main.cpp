@@ -10,7 +10,10 @@ using namespace std;
 char *name_input = NULL, *name_output = NULL;
 int M, S;
 
+void funcao(int *n) {
+   *n = 2;
 
+}
 // verifica passagem de argumentos
 void parse_args(int argc,char ** argv) {
    // variaveis externas do getopt
@@ -174,7 +177,8 @@ int main(int argc, char **argv) {
    for (int i = 0; i < array_counter; i++) {
       cout << palavras[i].nome << ' ' << palavras[i].count << endl;
    }
-   
+   int n = 0;
+   funcao (&n);
    return 0;
 }
 
