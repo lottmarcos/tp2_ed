@@ -157,15 +157,13 @@ int main(int argc, char **argv) {
    for (int i = 0; i < array_counter; i++) {
          palavras[i] = array_p[i];
    }
-      
    //cria as senhas das palavras
    for (int i = 0; i < array_counter; i++) {
       palavras[i].set_senha(ordem);
    }
 
    //ordena o array de words
-   ordena_array(&palavras[0], array_counter);
-
+   ordena_array(palavras, array_counter);
 
    //imprime o resultado
    for (int i = 0; i < 26; i++) {

@@ -43,28 +43,41 @@ int count_words(string str) {
         count++;
     return count;
 }
-void quickSort(palavra array[], int left, int right) {
-   int i = left, j = right;
-   palavra pivo = array[(left + right) / 2];
-   /* partição */
-   while (i <= j) {
-         while (array[i].senha < pivo.senha)
-               i++;
-         while (array[j].senha > pivo.senha)
-               j--;
-         if (i <= j) {
-               swap(array[i], array[j]);
-               i++; j--;
-         }
-   };
-   /* recursion */
-   if (left < j)
-         quickSort(&array[0], left, j);
-   if (i < right)
-         quickSort(&array[0], i, right);
+void swap(palavra* a, palavra* b) {
+    palavra t = *a;
+    *a = *b;
+    *b = t;
 }
+int partition (palavra array[], int low, int high) {
+    palavra pivot = array[high]; // pivot
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+ 
+    for (int j = low; j <= high - 1; j++) {
+        // If current element is smaller than the pivot
+        if (array[j].senha < pivot.senha) {
+            i++; // increment index of smaller element
+            swap(&array[i], &array[j]);
+        }
+    }
+    swap(&array[i + 1], &array[high]);
+    return (i + 1);
+}
+
+void quickSort(palavra array[], int low, int high) {
+    if (low < high) {
+        /* pi is partitioning index, arr[p] is now
+        at right place */
+        int pi = partition(array, low, high);
+ 
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(array, low, pi - 1);
+        quickSort(array, pi + 1, high);
+    }
+}
+
 void ordena_array(palavra array[], int n) {
-   quickSort(&array[0], 0, n);
+   quickSort(array, 0, n-1);
 }
 
 
