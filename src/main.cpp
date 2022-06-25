@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
    stringstream stream(texto);
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
-      //array_p[i].set_word(aux);
+      array_p[i].set_word(aux);
    }
 
    //cria todas as new_words das words
