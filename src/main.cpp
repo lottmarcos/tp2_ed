@@ -10,10 +10,6 @@ using namespace std;
 char *name_input = NULL, *name_output = NULL;
 int M, S;
 
-void funcao(int *n) {
-   *n = 2;
-
-}
 // verifica passagem de argumentos
 void parse_args(int argc,char ** argv) {
    // variaveis externas do getopt
@@ -80,7 +76,6 @@ int main(int argc, char **argv) {
    // verifica abertura dos arquivos
    ifstream input_file(name_input);
    ofstream output_file(name_output, ios::trunc);
-   output_file.close();
    if (!input_file.is_open()) {
       cerr << "ERRO DE ABERTURA" << endl 
       << "O arquivo de entrada não encontrado" << endl;
@@ -170,15 +165,11 @@ int main(int argc, char **argv) {
    quicksort(palavras, array_counter);
 
    //imprime o resultado
-   for (int i = 0; i < 26; i++) {
-      cout << ordem[i] << " ";
-   }
-   cout << endl << endl;
    for (int i = 0; i < array_counter; i++) {
-      cout << palavras[i].nome << ' ' << palavras[i].count << endl;
+      output_file << palavras[i].nome << ' ' << palavras[i].count << endl;
    }
-   int n = 0;
-   funcao (&n);
+   output_file << "#FIM\n";
+   output_file.close();
    return 0;
 }
 
