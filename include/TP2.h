@@ -24,10 +24,11 @@ class palavra {
    void set_senha(char array[]);
 };
 
-// QUICKSORT
+// ALGORITMOS DE ORDENAÇÃO
 void particao (int esq, int dir, int *i, int *j, palavra *A, int M);
 void ordena (int esq, int dir, palavra *A, int M);
 void quicksort (palavra *A, int n, int M);
+void insertsort(palavra *array, int n);
 
 // FUNÇÕES GLOBAIS
 void parse_args(int argc,char ** argv);

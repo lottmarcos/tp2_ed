@@ -68,6 +68,10 @@ int main(int argc, char **argv) {
       cout << "ERROR:\n\tvalor de M inválido. M há de ser positivo" << endl;
       return 0;
    }
+   if (S < 0) {
+      cout << "ERROR:\n\tvalor de S inválido. M há de ser positivo" << endl;
+      return 0;
+   }
    M--;
 
    // inicia registro de acesso
@@ -166,8 +170,11 @@ int main(int argc, char **argv) {
    }
 
    //ordena o array de words
-   quicksort(palavras, array_counter, M);
-
+   if (S > array_counter) 
+      quicksort(palavras, array_counter, M);
+   else
+      insertsort(palavras, array_counter);
+   
    //imprime o resultado
    for (int i = 0; i < array_counter; i++) {
       output_file << palavras[i].nome << ' ' << palavras[i].count << endl;

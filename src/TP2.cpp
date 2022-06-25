@@ -47,19 +47,21 @@ int count_words(string str) {
 }
 
 
-//FUNÇÕES SOBRE QUICKSORT
+//FUNÇÕES SOBRE OS ALGORITMOS DE ORDENAÇÃO
 void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    palavra x, w;
    *i = esq; *j = dir;
-   
+
    int contador = 0;
-   for (int p = 0; p < M; p++) {
-      if ((esq + contador) < dir) {
+   for (int z = 0; z < M; z++) {
+      if(esq + contador < dir) {
          contador++;
       }
    }
-   x = A[(*i + contador)/2]; // obtém o pivô x
-   cout << "sortei" << endl;
+   
+   int soma = esq+(esq + contador);
+   x = A[soma/2]; // obtém o pivô x
+
    do {
     while (x.senha > A[*i].senha) (*i)++;  
     while (x.senha < A[*j].senha) (*j)--;  
@@ -78,6 +80,21 @@ void ordena (int esq, int dir, palavra *A, int M) {
 }
 void quicksort (palavra *A, int n, int M) {
    ordena(0, n-1, A, M);
+}
+void insertsort(palavra *array, int n) {
+   int i, j, trocou;
+   for(i = 0; i < n-1; i++) {
+      trocou = 0;
+      for(j = 1; j < n-i; j++){
+         if (array[j].senha < array[j-1].senha) {
+            swap(array[j-1], array[j]);
+            trocou = 1;
+         }
+      }
+      if (!trocou) {
+         break;
+      }
+   }
 }
 
 //FUNÇÕES SOBRE PALAVRAS
