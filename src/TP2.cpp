@@ -53,13 +53,13 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    *i = esq; *j = dir;
    
    int contador = 0;
-   for (int p = *i; p < M; p++) {
+   for (int p = 0; p < M; p++) {
       if ((esq + contador) < dir) {
          contador++;
       }
    }
    x = A[(*i + contador)/2]; // obtém o pivô x
-
+   cout << "sortei" << endl;
    do {
     while (x.senha > A[*i].senha) (*i)++;  
     while (x.senha < A[*j].senha) (*j)--;  
