@@ -86,16 +86,17 @@ int main(int argc, char **argv) {
 
    // ----------------- INICIO DO PROGRAMA ----------------- //
 
-   //variáveis iniciais e auxiliares
+   // variáveis iniciais e auxiliares
    string ORDEM = "#ORDEM", TEXTO = "#TEXTO"; 
    bool ordemaux = false;
    string str, trash, aux;
    int diff = 'a' - 'A';
 
-   //variáveis protagonistas
+   // variáveis protagonistas
    char ordem[26];
    string texto;
 
+   // armazena as informações nas devidas variaveis
    while (input_file >> str) {
       if (ordemaux) {
          //armazena a ordem
@@ -129,6 +130,7 @@ int main(int argc, char **argv) {
       }
 
    }
+   input_file.close();
 
    // cria o array de palavras
    int array_counter = 0;
@@ -156,17 +158,25 @@ int main(int argc, char **argv) {
          palavras[i] = array_p[i];
    }
       
-   //cria todas as new_words das words
+   //cria as senhas das palavras
+   for (int i = 0; i < array_counter; i++) {
+      palavras[i].set_senha(ordem);
+   }
+
    //ordena o array de words
+   //ordena_array(&palavras, array_counter);
+
+
    //imprime o resultado
    for (int i = 0; i < 26; i++) {
       cout << ordem[i] << " ";
    }
-   cout << endl;
+   cout << endl << endl;
    for (int i = 0; i < array_counter; i++) {
-      cout << palavras[i].nome << ' ' << palavras[i].count << endl;
+      cout << palavras[i].nome << ' ' << palavras[i].count << ' ' << palavras[i].senha << endl;
    }
    cout << endl << texto << endl;
    
    return 0;
 }
+

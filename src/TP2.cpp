@@ -43,6 +43,11 @@ int count_words(string str) {
         count++;
     return count;
 }
+void ordena_array(palavra array[], int n) {
+   for (int i = 0; i < n; i++) {
+      array[i].count = 99;
+   }
+}
 
 //FUNÇÕES SOBRE PALAVRAS
 
@@ -53,3 +58,14 @@ void palavra::set_word(string s) {
    nome = s;
    count = 1;
 }
+void palavra::set_senha(char array[]) {
+   string aux1 = nome;
+   string aux2;
+   int diff = 'a';
+   int x = aux1.length();
+   for (int i = 0; i < x; i++) {
+      aux2 += array[aux1[i] - diff];
+   }
+   senha = aux2;
+}
+
