@@ -88,25 +88,40 @@ int main(int argc, char **argv) {
 
    //variáveis iniciais e auxiliares
    string ORDEM = "#ORDEM", TEXTO = "#TEXTO"; 
+   bool ordemaux = false;
    string str, trash, aux;
+   int diff = 'a' - 'A';
 
    //variáveis protagonistas
    char ordem[26];
    string texto;
 
    while (input_file >> str) {
+      if (ordemaux) {
+         //armazena a ordem
+         ordem[0] = str[0] + diff;
+         for (int i = 1; i < 26; i++) {
+            input_file >> str;
+            ordem[i] = str[0] + diff;
+         }
+      }
+
       if (str == ORDEM) {
          //armazena a ordem
          for (int i = 0; i < 26; i++) {
             input_file >> str;
-            ordem[i] = str[0];
+            ordem[i] = str[0] + diff;
          }
-      }
+      } 
 
       if (str == TEXTO) {
          // armazena as palavras do texto
          //cria o array de words com as palavras em lowercase (palavra espaço palavra [count_words])
          while (input_file >> str) {
+            if (str == ORDEM) {
+               ordemaux = true;
+               break;
+            }
             aux = fix_word(str);
             texto += aux;
             texto += " ";
@@ -121,7 +136,7 @@ int main(int argc, char **argv) {
    stringstream stream(texto);
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
-      array_p[i].set_word(aux);
+      //array_p[i].set_word(aux);
    }
 
    //cria todas as new_words das words
@@ -130,7 +145,7 @@ int main(int argc, char **argv) {
    for (int i = 0; i < 26; i++) {
             cout << ordem[i] << " ";
          }
-   cout << endl << texto << endl << endl;
+   cout << endl << endl << texto << endl;
    
    return 0;
 }

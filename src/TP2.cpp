@@ -25,7 +25,10 @@ string fix_word(string str) {
    for (int i = 0; i <= x; i++) {
       if (str[i] >= 'A' && str[i] <= 'Z') 
          aux += str[i] + diff;
-      if (str[i] >= 'a' && str[i] <= 'z') 
+      else if (str[i] >= 'a' && str[i] <= 'z') 
+         aux += str[i];
+      else if (str[i] == '-' && ((str[i+1] >= 'a' && str[i+1] <= 'z') || (str[i+1] >= 'A' && str[i+1] <= 'Z') || 
+              (str[i-1] >= 'a' && str[i-1] <= 'z') || (str[i-1] >= 'A' && str[i-1] <= 'Z') )) 
          aux += str[i];
    }
    
