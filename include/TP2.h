@@ -25,9 +25,9 @@ class palavra {
 };
 
 // QUICKSORT
-void particao (int esq, int dir, int *i, int *j, palavra *A);
-void ordena (int esq, int dir, palavra *A);
-void quicksort (palavra *A, int n);
+void particao (int esq, int dir, int *i, int *j, palavra *A, int M);
+void ordena (int esq, int dir, palavra *A, int M);
+void quicksort (palavra *A, int n, int M);
 
 // FUNÇÕES GLOBAIS
 void parse_args(int argc,char ** argv);

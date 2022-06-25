@@ -64,6 +64,11 @@ int main(int argc, char **argv) {
       cout << "ERROR:\n\tnecessario escrever os nomes dos arquivos de entrada e saida" << endl;
       return 0;
    }
+   if (M < 1) {
+      cout << "ERROR:\n\tvalor de M inválido. M há de ser positivo" << endl;
+      return 0;
+   }
+   M--;
 
    // inicia registro de acesso
    string lognome = "memlog.out";
@@ -77,8 +82,7 @@ int main(int argc, char **argv) {
    ifstream input_file(name_input);
    ofstream output_file(name_output, ios::trunc);
    if (!input_file.is_open()) {
-      cerr << "ERRO DE ABERTURA" << endl 
-      << "O arquivo de entrada não encontrado" << endl;
+      cout <<  "ERROR:\n\tarquivo de entrada não encontrado" << endl;
       return 0;
    }
 
@@ -162,7 +166,7 @@ int main(int argc, char **argv) {
    }
 
    //ordena o array de words
-   quicksort(palavras, array_counter);
+   quicksort(palavras, array_counter, M);
 
    //imprime o resultado
    for (int i = 0; i < array_counter; i++) {

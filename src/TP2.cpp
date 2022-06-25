@@ -51,7 +51,7 @@ int count_words(string str) {
 void particao (int esq, int dir, int *i, int *j, palavra *A) {
    palavra x, w;
    *i = esq; *j = dir;
-
+   
    x = A[(*i + *j)/2]; // obtém o pivô x
 
    do {
