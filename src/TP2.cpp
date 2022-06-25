@@ -48,11 +48,18 @@ int count_words(string str) {
 
 
 //FUNÇÕES SOBRE QUICKSORT
-void particao (int esq, int dir, int *i, int *j, palavra *A) {
+void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    palavra x, w;
    *i = esq; *j = dir;
    
-   x = A[(*i + *j)/2]; // obtém o pivô x
+   int aux_m = esq;
+   int contador = 0;
+   for (int p = *i; p < M; p++) {
+      if ((esq + contador) < dir) {
+         contador++;
+      }
+   }
+   x = A[(*i + contador)/2]; // obtém o pivô x
 
    do {
     while (x.senha > A[*i].senha) (*i)++;  
@@ -64,14 +71,14 @@ void particao (int esq, int dir, int *i, int *j, palavra *A) {
    } while (*i <= *j);
    
 }
-void ordena (int esq, int dir, palavra *A) {
+void ordena (int esq, int dir, palavra *A, int M) {
    int i, j;
-   particao (esq, dir, &i, &j, A);
-   if (esq < j) ordena (esq, j, A);
-   if (i < dir) ordena (i, dir, A);
+   particao (esq, dir, &i, &j, A, M);
+   if (esq < j) ordena (esq, j, A, M);
+   if (i < dir) ordena (i, dir, A, M);
 }
-void quicksort (palavra *A, int n) {
-   ordena(0, n-1, A);
+void quicksort (palavra *A, int n, int M) {
+   ordena(0, n-1, A, M);
 }
 
 //FUNÇÕES SOBRE PALAVRAS
