@@ -24,7 +24,7 @@ all: $(OBJ)
 
 run:
 	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt" -m 4 -s 10
-	
+	gprof ./bin/main.exe gmon.out > gprof.txt
 
 clean: 
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLFER)* $(OUTPUT_FOLFER)*

@@ -28,7 +28,7 @@ all: test use
 use: $(EXE)
 	if test -d /tmp/out; then rm -rf /tmp/out; fi
 	mkdir /tmp/out
-	$(EXE) -i /tmp/memlog.out -p /tmp/out/mult
+	$(EXE) -i /tmp/memlog.out -p /tmp/out/ordenacao
 	gnuplot /tmp/out/*.gp
 	ls /tmp/out/
 

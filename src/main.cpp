@@ -150,7 +150,7 @@ int main(int argc, char **argv) {
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
       for (int j = 0; j < n_words; j++) {
-         leMemLog((long int)(&(array_p)),sizeof(palavra), 0);
+         escreveMemLog((long int)(&(array_p)),sizeof(palavra), 0);
          if (array_p[j].nome == aux) {
             array_p[j].count++;
             add = false;
@@ -170,7 +170,7 @@ int main(int argc, char **argv) {
    }
    //cria as senhas das palavras
    for (int i = 0; i < array_counter; i++) {
-      escreveMemLog((long int)(&(palavras)),sizeof(palavra), 0);
+      leMemLog((long int)(&(palavras)),sizeof(palavra), 0);
       palavras[i].set_senha(ordem);
    }
 

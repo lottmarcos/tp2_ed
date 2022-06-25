@@ -63,7 +63,7 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    int soma = esq+(esq + contador);
    x = A[soma/2]; // obtém o pivô x
    
-   leMemLog((long int)(&(A)),sizeof(palavra), 0);
+   leMemLog((long int)(&(x)),sizeof(palavra), 0);
    do {
     while (x.senha > A[*i].senha) (*i)++;  
     while (x.senha < A[*j].senha) (*j)--;  
@@ -92,11 +92,11 @@ void insertsort(palavra *array, int n) {
             swap(array[j-1], array[j]);
             trocou = 1;
          }
+         leMemLog((long int)(&(array[j])),sizeof(palavra), 0);
       }
       if (!trocou) {
          break;
       }
-      leMemLog((long int)(&(array)),sizeof(palavra), 0);
    }
 }
 
