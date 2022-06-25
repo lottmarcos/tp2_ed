@@ -131,21 +131,42 @@ int main(int argc, char **argv) {
    }
 
    // cria o array de palavras
+   int array_counter = 0;
    int n_words = count_words(texto);
+   bool add = true;
    palavra array_p[n_words];
    stringstream stream(texto);
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
-      array_p[i].set_word(aux);
-   }
+      for (int j = 0; j < n_words; j++) {
+         if (array_p[j].nome == aux) {
+            array_p[j].count++;
+            add = false;
+         }
+      }
+      if (add == true) {
+         array_p[array_counter].set_word(aux);
+         array_counter++;
+      }
 
+      add = true;
+   }
+   palavra palavras[array_counter];
+   for (int i = 0; i < array_counter; i++) {
+         palavras[i] = array_p[i];
+   }
+      
    //cria todas as new_words das words
    //ordena o array de words
    //imprime o resultado
    for (int i = 0; i < 26; i++) {
-            cout << ordem[i] << " ";
-         }
-   cout << endl << endl << texto << endl;
+      cout << ordem[i] << " ";
+   }
+   cout << endl;
+   for (int i = 0; i < array_counter; i++) {
+      cout << palavras[i].nome << ' ' << palavras[i].count << endl;
+   }
+   cout << endl << texto << endl;
    
    return 0;
 }

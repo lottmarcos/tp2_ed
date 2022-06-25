@@ -49,3 +49,7 @@ int count_words(string str) {
 palavra::palavra() {
    count = 0;
 }
+void palavra::set_word(string s) {
+   nome = s;
+   count = 1;
+}
