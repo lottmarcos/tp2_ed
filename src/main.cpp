@@ -164,7 +164,7 @@ int main(int argc, char **argv) {
    }
 
    //ordena o array de words
-   //ordena_array(&palavras, array_counter);
+   ordena_array(&palavras[0], array_counter);
 
 
    //imprime o resultado
