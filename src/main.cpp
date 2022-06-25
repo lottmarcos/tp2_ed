@@ -163,7 +163,7 @@ int main(int argc, char **argv) {
    }
 
    //ordena o array de words
-   ordena_array(palavras, array_counter);
+   quicksort(palavras, array_counter);
 
    //imprime o resultado
    for (int i = 0; i < 26; i++) {

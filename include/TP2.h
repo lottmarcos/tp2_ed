@@ -11,7 +11,7 @@ using namespace std;
 //O programa deve ser capaz de ignorar espaços em branco e elementos de 
 //pontuação (“,”, “.”, “!”, “?”, “:”, “;” e “_”) no final das palavras. 
 
-//CLASSE WORD
+// CLASSE PALAVRA
 class palavra {
    public:
 
@@ -24,12 +24,14 @@ class palavra {
    void set_senha(char array[]);
 };
 
+// QUICKSORT
+void particao (int esq, int dir, int *i, int *j, palavra *A);
+void ordena (int esq, int dir, palavra *A);
+void quicksort (palavra *A, int n);
+
 // FUNÇÕES GLOBAIS
 void parse_args(int argc,char ** argv);
 void uso();
 string fix_word(string str); // deixa todas as letras em lowercase e elimina caracteres especiais
 int count_words(string str); // conta o numero de palavras em uma string
-void quickSort(palavra array[], int left, int right);
-void ordena_array(palavra array[], int n);
-void swap(palavra *a, palavra *b);
 

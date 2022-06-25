@@ -30,6 +30,8 @@ string fix_word(string str) {
       else if (str[i] == '-' && ((str[i+1] >= 'a' && str[i+1] <= 'z') || (str[i+1] >= 'A' && str[i+1] <= 'Z') || 
               (str[i-1] >= 'a' && str[i-1] <= 'z') || (str[i-1] >= 'A' && str[i-1] <= 'Z') )) 
          aux += str[i];
+      else if (str[i] >= '0' && str[i] <= '9')
+         aux += str[i];
    }
    
    return aux;
@@ -43,43 +45,34 @@ int count_words(string str) {
         count++;
     return count;
 }
-void swap(palavra* a, palavra* b) {
-    palavra t = *a;
-    *a = *b;
-    *b = t;
-}
-int partition (palavra array[], int low, int high) {
-    palavra pivot = array[high]; // pivot
-    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
- 
-    for (int j = low; j <= high - 1; j++) {
-        // If current element is smaller than the pivot
-        if (array[j].senha < pivot.senha) {
-            i++; // increment index of smaller element
-            swap(&array[i], &array[j]);
-        }
+
+
+//FUNÇÕES SOBRE QUICKSORT
+void particao (int esq, int dir, int *i, int *j, palavra *A) {
+   palavra x, w;
+   *i = esq; *j = dir;
+
+   x = A[(*i + *j)/2]; // obtém o pivô x
+
+   do {
+    while (x.senha > A[*i].senha) (*i)++;  
+    while (x.senha < A[*j].senha) (*j)--;  
+    if (*i <= *j) {
+      w = A[*i]; A[*i] = A[*j]; A[*j] = w;
+      (*i)++; (*j)--;
     }
-    swap(&array[i + 1], &array[high]);
-    return (i + 1);
+   } while (*i <= *j);
+   
 }
-
-void quickSort(palavra array[], int low, int high) {
-    if (low < high) {
-        /* pi is partitioning index, arr[p] is now
-        at right place */
-        int pi = partition(array, low, high);
- 
-        // Separately sort elements before
-        // partition and after partition
-        quickSort(array, low, pi - 1);
-        quickSort(array, pi + 1, high);
-    }
+void ordena (int esq, int dir, palavra *A) {
+   int i, j;
+   particao (esq, dir, &i, &j, A);
+   if (esq < j) ordena (esq, j, A);
+   if (i < dir) ordena (i, dir, A);
 }
-
-void ordena_array(palavra array[], int n) {
-   quickSort(array, 0, n-1);
+void quicksort (palavra *A, int n) {
+   ordena(0, n-1, A);
 }
-
 
 //FUNÇÕES SOBRE PALAVRAS
 
@@ -94,13 +87,24 @@ void palavra::set_senha(char array[]) {
    string aux1 = nome;
    string aux2;
    int diff = 'a';
+   int j;
+   char c_aux;
    int x = aux1.length();
    for (int i = 0; i < x; i++) {
       if (aux1[i] == '-')
          aux2 += '-';
-      else
-         aux2 += array[aux1[i] - diff];
-   }
+      
+      else if (aux1[i] >= '0' && aux1[i] <= '9')
+         aux2 += aux1[i];
+      else {
+         c_aux = aux1[i]; // pego o caractere
+         for (j = 0; j < 26; j++) { // acha o indice do array
+            if (array[j] == c_aux)
+               break;
+         }
+         aux2 += diff + j;
+      }
+   }                    
    senha = aux2;
 }
 
