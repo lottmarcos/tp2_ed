@@ -52,7 +52,6 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    palavra x, w;
    *i = esq; *j = dir;
    
-   int aux_m = esq;
    int contador = 0;
    for (int p = *i; p < M; p++) {
       if ((esq + contador) < dir) {
