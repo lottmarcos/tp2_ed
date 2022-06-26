@@ -78,10 +78,9 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
 void ordena (int esq, int dir, palavra *A, int M, int S) {
    int i, j;
 
-   if ((dir - esq +1) <= S) {
+   if ((dir - esq +1) < S) 
       insertsort(A, (dir - esq +1));
-      return;
-   }
+   
 
    else {
       particao (esq, dir, &i, &j, A, M, S);
