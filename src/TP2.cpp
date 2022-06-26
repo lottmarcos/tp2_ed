@@ -1,4 +1,5 @@
 #include "TP2.h"
+#include <cmath>
 #include "memlog.h"
 
 using namespace std;
@@ -76,10 +77,12 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
    
 }
 void ordena (int esq, int dir, palavra *A, int M, int S) {
-   int i, j;
+   int i, j; 
+   int n = dir - esq +1;
+   int auxS = sqrt(S);
 
-   if ((dir - esq +1) < S) 
-      insertsort(A, (dir - esq +1));
+   if (n < auxS) 
+      insertsort(A, n);
    
 
    else {
