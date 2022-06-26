@@ -22,9 +22,9 @@ class palavra {
 };
 
 // ALGORITMOS DE ORDENAÇÃO
-void particao (int esq, int dir, int *i, int *j, palavra *A, int M);
-void ordena (int esq, int dir, palavra *A, int M);
-void quicksort (palavra *A, int n, int M);
+void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S);
+void ordena (int esq, int dir, palavra *A, int M, int S);
+void quicksort (palavra *A, int n, int M, int S);
 void insertsort(palavra *array, int n);
 
 // FUNÇÕES GLOBAIS

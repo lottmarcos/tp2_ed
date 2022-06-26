@@ -176,10 +176,8 @@ int main(int argc, char **argv) {
 
    defineFaseMemLog(2); // MEMLOG PARA ORDENAÇÃO DAS PALAVRAS
    //ordena o array de words
-   if (S > array_counter) 
-      quicksort(palavras, array_counter, M);
-   else
-      insertsort(palavras, array_counter);
+   quicksort(palavras, array_counter, M, S);
+   
    
    
    //imprime o resultado

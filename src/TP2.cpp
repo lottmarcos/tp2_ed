@@ -49,8 +49,9 @@ int count_words(string str) {
 
 
 //FUNÇÕES SOBRE OS ALGORITMOS DE ORDENAÇÃO
-void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
+void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
    palavra x, w;
+   
    *i = esq; *j = dir;
 
    int contador = 0;
@@ -74,14 +75,22 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M) {
    } while (*i <= *j);
    
 }
-void ordena (int esq, int dir, palavra *A, int M) {
+void ordena (int esq, int dir, palavra *A, int M, int S) {
    int i, j;
-   particao (esq, dir, &i, &j, A, M);
-   if (esq < j) ordena (esq, j, A, M);
-   if (i < dir) ordena (i, dir, A, M);
+
+   if ((dir - esq +1) <= S) {
+      insertsort(A, (dir - esq +1));
+      return;
+   }
+
+   else {
+      particao (esq, dir, &i, &j, A, M, S);
+      if (esq < j) ordena (esq, j, A, M, S);
+      if (i < dir) ordena (i, dir, A, M, S);
+   }
 }
-void quicksort (palavra *A, int n, int M) {
-   ordena(0, n-1, A, M);
+void quicksort (palavra *A, int n, int M, int S) {
+   ordena(0, n-1, A, M, S);
 }
 void insertsort(palavra *array, int n) {
    int i, j, trocou;
