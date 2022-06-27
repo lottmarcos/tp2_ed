@@ -55,6 +55,7 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
    
    *i = esq; *j = dir;
 
+   // encontra o pivô de acordo com o paramêtro M
    int contador = 0;
    for (int z = 0; z < M; z++) {
       if(esq + contador < dir) {
@@ -66,10 +67,6 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
       aux[z] = A[esq + z];
    }
    insertsort(aux, contador+1);
-
-   //int soma = esq+(esq + contador);
-   //x = A[soma/2]; // obtém o pivô x
-
    int soma = contador + 1;
    x = aux[soma/2];
 
