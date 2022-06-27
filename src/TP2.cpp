@@ -83,10 +83,16 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
 }
 void ordena (int esq, int dir, palavra *A, int M, int S) {
    int i, j; 
+
+   int n = dir - esq +1;
    
-   particao (esq, dir, &i, &j, A, M, S);
-   if (esq < j) ordena (esq, j, A, M, S);
-   if (i < dir) ordena (i, dir, A, M, S);
+   if (n <= S) 
+      insertsort(A, n);
+   else {
+      particao (esq, dir, &i, &j, A, M, S);
+      if (esq < j) ordena (esq, j, A, M, S);
+      if (i < dir) ordena (i, dir, A, M, S);
+   }
 }
 void quicksort (palavra *A, int n, int M, int S) {
    ordena(0, n-1, A, M, S);
