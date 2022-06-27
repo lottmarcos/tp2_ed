@@ -69,25 +69,17 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
    insertsort(aux, contador+1);
    int soma = contador + 1;
    x = aux[soma/2];
-
-   int n = dir - esq +1;
-
-   S = n + 999999999999999;
-   if (n <= S) 
-      insertsort(A, n);
+     
+   leMemLog((long int)(&(x)),sizeof(palavra), 2);
+   do {
+      while (x.senha > A[*i].senha) (*i)++;  
+      while (x.senha < A[*j].senha) (*j)--;  
+      if (*i <= *j) {
+         w = A[*i]; A[*i] = A[*j]; A[*j] = w;
+         (*i)++; (*j)--;
+      }
+   } while (*i <= *j);
    
-   else {
-   
-      leMemLog((long int)(&(x)),sizeof(palavra), 2);
-      do {
-         while (x.senha > A[*i].senha) (*i)++;  
-         while (x.senha < A[*j].senha) (*j)--;  
-         if (*i <= *j) {
-            w = A[*i]; A[*i] = A[*j]; A[*j] = w;
-            (*i)++; (*j)--;
-         }
-      } while (*i <= *j);
-   }
 }
 void ordena (int esq, int dir, palavra *A, int M, int S) {
    int i, j; 
