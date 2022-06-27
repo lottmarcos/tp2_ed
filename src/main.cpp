@@ -92,8 +92,7 @@ int main(int argc, char **argv) {
 
    // ----------------- INICIO DO PROGRAMA ----------------- //
 
-   defineFaseMemLog(0) // MEMLOG PARA O ARMAZENAMENTO DOS DADOS DO ARQUIVO DE ENTRADA
-   ;
+   defineFaseMemLog(0); // MEMLOG PARA O ARMAZENAMENTO DOS DADOS DO ARQUIVO DE ENTRADA
    // variáveis iniciais e auxiliares
    string ORDEM = "#ORDEM", TEXTO = "#TEXTO"; 
    bool ordemaux = false;
@@ -150,7 +149,7 @@ int main(int argc, char **argv) {
    for (int i = 0; i < n_words; i++) {
       stream >> aux;
       for (int j = 0; j < n_words; j++) {
-         escreveMemLog((long int)(&(array_p)),sizeof(palavra), 0);
+         escreveMemLog((long int)(&(array_p)),sizeof(palavra), 1);
          if (array_p[j].nome == aux) {
             array_p[j].count++;
             add = false;
@@ -170,7 +169,7 @@ int main(int argc, char **argv) {
    }
    //cria as senhas das palavras
    for (int i = 0; i < array_counter; i++) {
-      leMemLog((long int)(&(palavras)),sizeof(palavra), 0);
+      leMemLog((long int)(&(palavras)),sizeof(palavra), 1);
       palavras[i].set_senha(ordem);
    }
 

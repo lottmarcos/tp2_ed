@@ -66,12 +66,13 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
 
    int n = dir - esq +1;
 
+   S = n + 999999999999999;
    if (n <= S) 
       insertsort(A, n);
    
    else {
    
-      leMemLog((long int)(&(x)),sizeof(palavra), 0);
+      leMemLog((long int)(&(x)),sizeof(palavra), 2);
       do {
          while (x.senha > A[*i].senha) (*i)++;  
          while (x.senha < A[*j].senha) (*j)--;  
@@ -101,7 +102,7 @@ void insertsort(palavra *array, int n) {
             swap(array[j-1], array[j]);
             trocou = 1;
          }
-         leMemLog((long int)(&(array[j])),sizeof(palavra), 0);
+         leMemLog((long int)(&(array[j])),sizeof(palavra), 2);
       }
       if (!trocou) {
          break;
@@ -126,7 +127,7 @@ void palavra::set_senha(char array[]) {
    char c_aux;
    int x = aux1.length();
    for (int i = 0; i < x; i++) {
-      escreveMemLog((long int)(&(aux2)),sizeof(string), 0);
+      escreveMemLog((long int)(&(aux2)),sizeof(string), 1);
       if (aux1[i] == '-')
          aux2 += '-';
       
