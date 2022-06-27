@@ -87,7 +87,7 @@ void ordena (int esq, int dir, palavra *A, int M, int S) {
    int n = dir - esq +1;
    
    if (n <= S) 
-      selectionsort(A, n);
+      insertsort(A, n);
    else {
       particao (esq, dir, &i, &j, A, M, S);
       if (esq < j) ordena (esq, j, A, M, S);
