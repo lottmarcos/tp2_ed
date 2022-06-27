@@ -61,8 +61,17 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
          contador++;
       }
    }
-   int soma = esq+(esq + contador);
-   x = A[soma/2]; // obtém o pivô x
+   palavra aux[contador+1];
+   for (int z = 0; z < contador + 1; z++) {
+      aux[z] = A[esq + z];
+   }
+   insertsort(aux, contador+1);
+
+   //int soma = esq+(esq + contador);
+   //x = A[soma/2]; // obtém o pivô x
+
+   int soma = contador + 1;
+   x = aux[soma/2];
 
    int n = dir - esq +1;
 

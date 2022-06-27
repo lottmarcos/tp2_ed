@@ -5,20 +5,25 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00     5025     0.00     0.00  clkDifMemLog(timespec, timespec, timespec*)
+  0.00      0.00     0.00     6202     0.00     0.00  clkDifMemLog(timespec, timespec, timespec*)
   0.00      0.00     0.00     4923     0.00     0.00  escreveMemLog(long, long, int)
   0.00      0.00     0.00     4295     0.00     0.00  __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-  0.00      0.00     0.00      365     0.00     0.00  palavra::operator=(palavra const&)
-  0.00      0.00     0.00      230     0.00     0.00  bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-  0.00      0.00     0.00      210     0.00     0.00  palavra::palavra()
-  0.00      0.00     0.00      210     0.00     0.00  palavra::~palavra()
+  0.00      0.00     0.00     1926     0.00     0.00  std::remove_reference<palavra&>::type&& std::move<palavra&>(palavra&)
+  0.00      0.00     0.00     1347     0.00     0.00  bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00     1284     0.00     0.00  palavra::operator=(palavra&&)
+  0.00      0.00     0.00     1278     0.00     0.00  leMemLog(long, long, int)
+  0.00      0.00     0.00     1142     0.00     0.00  palavra::~palavra()
+  0.00      0.00     0.00      692     0.00     0.00  palavra::operator=(palavra const&)
+  0.00      0.00     0.00      642     0.00     0.00  palavra::palavra(palavra&&)
+  0.00      0.00     0.00      642     0.00     0.00  std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&)
+  0.00      0.00     0.00      500     0.00     0.00  palavra::palavra()
   0.00      0.00     0.00      207     0.00     0.00  std::char_traits<char>::compare(char const*, char const*, unsigned long)
-  0.00      0.00     0.00      198     0.00     0.00  bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-  0.00      0.00     0.00      101     0.00     0.00  leMemLog(long, long, int)
+  0.00      0.00     0.00      194     0.00     0.00  bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
   0.00      0.00     0.00       65     0.00     0.00  fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
   0.00      0.00     0.00       57     0.00     0.00  palavra::set_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
   0.00      0.00     0.00       57     0.00     0.00  palavra::set_senha(char*)
-  0.00      0.00     0.00       44     0.00     0.00  particao(int, int, int*, int*, palavra*, int, int)
+  0.00      0.00     0.00       52     0.00     0.00  insertsort(palavra*, int)
+  0.00      0.00     0.00       52     0.00     0.00  particao(int, int, int*, int*, palavra*, int, int)
   0.00      0.00     0.00        3     0.00     0.00  defineFaseMemLog(int)
   0.00      0.00     0.00        2     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
   0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z3usov
@@ -72,114 +77,140 @@ notice and this notice are preserved.
 granularity: each sample hit covers 2 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00       1/5025        finalizaMemLog() [30]
-                0.00    0.00     101/5025        leMemLog(long, long, int) [17]
-                0.00    0.00    4923/5025        escreveMemLog(long, long, int) [9]
-[8]      0.0    0.00    0.00    5025         clkDifMemLog(timespec, timespec, timespec*) [8]
+                0.00    0.00       1/6202        finalizaMemLog() [35]
+                0.00    0.00    1278/6202        leMemLog(long, long, int) [14]
+                0.00    0.00    4923/6202        escreveMemLog(long, long, int) [9]
+[8]      0.0    0.00    0.00    6202         clkDifMemLog(timespec, timespec, timespec*) [8]
 -----------------------------------------------
-                0.00    0.00     305/4923        palavra::set_senha(char*) [20]
-                0.00    0.00     393/4923        fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [18]
+                0.00    0.00     305/4923        palavra::set_senha(char*) [24]
+                0.00    0.00     393/4923        fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [22]
                 0.00    0.00    4225/4923        main [6]
 [9]      0.0    0.00    0.00    4923         escreveMemLog(long, long, int) [9]
-                0.00    0.00    4923/5025        clkDifMemLog(timespec, timespec, timespec*) [8]
+                0.00    0.00    4923/6202        clkDifMemLog(timespec, timespec, timespec*) [8]
 -----------------------------------------------
                 0.00    0.00    4295/4295        main [6]
 [10]     0.0    0.00    0.00    4295         __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [10]
-                0.00    0.00     207/207         std::char_traits<char>::compare(char const*, char const*, unsigned long) [15]
+                0.00    0.00     207/207         std::char_traits<char>::compare(char const*, char const*, unsigned long) [20]
 -----------------------------------------------
-                0.00    0.00      57/365         main [6]
-                0.00    0.00     308/365         particao(int, int, int*, int*, palavra*, int, int) [21]
-[11]     0.0    0.00    0.00     365         palavra::operator=(palavra const&) [11]
+                0.00    0.00    1926/1926        std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+[11]     0.0    0.00    0.00    1926         std::remove_reference<palavra&>::type&& std::move<palavra&>(palavra&) [11]
 -----------------------------------------------
-                0.00    0.00     230/230         particao(int, int, int*, int*, palavra*, int, int) [21]
-[12]     0.0    0.00    0.00     230         bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [12]
+                0.00    0.00     178/1347        particao(int, int, int*, int*, palavra*, int, int) [26]
+                0.00    0.00    1169/1347        insertsort(palavra*, int) [25]
+[12]     0.0    0.00    0.00    1347         bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [12]
 -----------------------------------------------
-                0.00    0.00      88/210         particao(int, int, int*, int*, palavra*, int, int) [21]
-                0.00    0.00     122/210         main [6]
-[13]     0.0    0.00    0.00     210         palavra::palavra() [13]
+                0.00    0.00    1284/1284        std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+[13]     0.0    0.00    0.00    1284         palavra::operator=(palavra&&) [13]
 -----------------------------------------------
-                0.00    0.00      88/210         particao(int, int, int*, int*, palavra*, int, int) [21]
-                0.00    0.00     122/210         main [6]
-[14]     0.0    0.00    0.00     210         palavra::~palavra() [14]
+                0.00    0.00      52/1278        particao(int, int, int*, int*, palavra*, int, int) [26]
+                0.00    0.00      57/1278        main [6]
+                0.00    0.00    1169/1278        insertsort(palavra*, int) [25]
+[14]     0.0    0.00    0.00    1278         leMemLog(long, long, int) [14]
+                0.00    0.00    1278/6202        clkDifMemLog(timespec, timespec, timespec*) [8]
+-----------------------------------------------
+                0.00    0.00     122/1142        main [6]
+                0.00    0.00     378/1142        particao(int, int, int*, int*, palavra*, int, int) [26]
+                0.00    0.00     642/1142        std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+[15]     0.0    0.00    0.00    1142         palavra::~palavra() [15]
+-----------------------------------------------
+                0.00    0.00      57/692         main [6]
+                0.00    0.00     635/692         particao(int, int, int*, int*, palavra*, int, int) [26]
+[16]     0.0    0.00    0.00     692         palavra::operator=(palavra const&) [16]
+-----------------------------------------------
+                0.00    0.00     642/642         std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+[17]     0.0    0.00    0.00     642         palavra::palavra(palavra&&) [17]
+-----------------------------------------------
+                0.00    0.00     642/642         insertsort(palavra*, int) [25]
+[18]     0.0    0.00    0.00     642         std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+                0.00    0.00    1926/1926        std::remove_reference<palavra&>::type&& std::move<palavra&>(palavra&) [11]
+                0.00    0.00    1284/1284        palavra::operator=(palavra&&) [13]
+                0.00    0.00     642/642         palavra::palavra(palavra&&) [17]
+                0.00    0.00     642/1142        palavra::~palavra() [15]
+-----------------------------------------------
+                0.00    0.00     122/500         main [6]
+                0.00    0.00     378/500         particao(int, int, int*, int*, palavra*, int, int) [26]
+[19]     0.0    0.00    0.00     500         palavra::palavra() [19]
 -----------------------------------------------
                 0.00    0.00     207/207         __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [10]
-[15]     0.0    0.00    0.00     207         std::char_traits<char>::compare(char const*, char const*, unsigned long) [15]
+[20]     0.0    0.00    0.00     207         std::char_traits<char>::compare(char const*, char const*, unsigned long) [20]
 -----------------------------------------------
-                0.00    0.00     198/198         particao(int, int, int*, int*, palavra*, int, int) [21]
-[16]     0.0    0.00    0.00     198         bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [16]
------------------------------------------------
-                0.00    0.00      44/101         particao(int, int, int*, int*, palavra*, int, int) [21]
-                0.00    0.00      57/101         main [6]
-[17]     0.0    0.00    0.00     101         leMemLog(long, long, int) [17]
-                0.00    0.00     101/5025        clkDifMemLog(timespec, timespec, timespec*) [8]
+                0.00    0.00     194/194         particao(int, int, int*, int*, palavra*, int, int) [26]
+[21]     0.0    0.00    0.00     194         bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [21]
 -----------------------------------------------
                 0.00    0.00      65/65          main [6]
-[18]     0.0    0.00    0.00      65         fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [18]
+[22]     0.0    0.00    0.00      65         fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [22]
                 0.00    0.00     393/4923        escreveMemLog(long, long, int) [9]
 -----------------------------------------------
                 0.00    0.00      57/57          main [6]
-[19]     0.0    0.00    0.00      57         palavra::set_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [19]
+[23]     0.0    0.00    0.00      57         palavra::set_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [23]
 -----------------------------------------------
                 0.00    0.00      57/57          main [6]
-[20]     0.0    0.00    0.00      57         palavra::set_senha(char*) [20]
+[24]     0.0    0.00    0.00      57         palavra::set_senha(char*) [24]
                 0.00    0.00     305/4923        escreveMemLog(long, long, int) [9]
 -----------------------------------------------
-                0.00    0.00      44/44          ordena(int, int, palavra*, int, int) [33]
-[21]     0.0    0.00    0.00      44         particao(int, int, int*, int*, palavra*, int, int) [21]
-                0.00    0.00     308/365         palavra::operator=(palavra const&) [11]
-                0.00    0.00     230/230         bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [12]
-                0.00    0.00     198/198         bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [16]
-                0.00    0.00      88/210         palavra::palavra() [13]
-                0.00    0.00      88/210         palavra::~palavra() [14]
-                0.00    0.00      44/101         leMemLog(long, long, int) [17]
+                0.00    0.00      52/52          particao(int, int, int*, int*, palavra*, int, int) [26]
+[25]     0.0    0.00    0.00      52         insertsort(palavra*, int) [25]
+                0.00    0.00    1169/1347        bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [12]
+                0.00    0.00    1169/1278        leMemLog(long, long, int) [14]
+                0.00    0.00     642/642         std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&) [18]
+-----------------------------------------------
+                0.00    0.00      52/52          ordena(int, int, palavra*, int, int) [38]
+[26]     0.0    0.00    0.00      52         particao(int, int, int*, int*, palavra*, int, int) [26]
+                0.00    0.00     635/692         palavra::operator=(palavra const&) [16]
+                0.00    0.00     378/500         palavra::palavra() [19]
+                0.00    0.00     378/1142        palavra::~palavra() [15]
+                0.00    0.00     194/194         bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [21]
+                0.00    0.00     178/1347        bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [12]
+                0.00    0.00      52/52          insertsort(palavra*, int) [25]
+                0.00    0.00      52/1278        leMemLog(long, long, int) [14]
 -----------------------------------------------
                 0.00    0.00       3/3           main [6]
-[22]     0.0    0.00    0.00       3         defineFaseMemLog(int) [22]
+[27]     0.0    0.00    0.00       3         defineFaseMemLog(int) [27]
 -----------------------------------------------
-                0.00    0.00       1/2           count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [28]
+                0.00    0.00       1/2           count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [33]
                 0.00    0.00       1/2           main [6]
-[23]     0.0    0.00    0.00       2         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [23]
+[28]     0.0    0.00    0.00       2         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [28]
 -----------------------------------------------
                 0.00    0.00       1/1           __libc_csu_init [45]
-[24]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z3usov [24]
-                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [31]
+[29]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z3usov [29]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [36]
 -----------------------------------------------
                 0.00    0.00       1/1           __libc_csu_init [45]
-[25]     0.0    0.00    0.00       1         _GLOBAL__sub_I_name_input [25]
-                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [32]
+[30]     0.0    0.00    0.00       1         _GLOBAL__sub_I_name_input [30]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [37]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[26]     0.0    0.00    0.00       1         parse_args(int, char**) [26]
+[31]     0.0    0.00    0.00       1         parse_args(int, char**) [31]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[27]     0.0    0.00    0.00       1         ativaMemLog() [27]
+[32]     0.0    0.00    0.00       1         ativaMemLog() [32]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[28]     0.0    0.00    0.00       1         count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [28]
-                0.00    0.00       1/2           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [23]
+[33]     0.0    0.00    0.00       1         count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [33]
+                0.00    0.00       1/2           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [28]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[29]     0.0    0.00    0.00       1         iniciaMemLog(char*) [29]
+[34]     0.0    0.00    0.00       1         iniciaMemLog(char*) [34]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[30]     0.0    0.00    0.00       1         finalizaMemLog() [30]
-                0.00    0.00       1/5025        clkDifMemLog(timespec, timespec, timespec*) [8]
+[35]     0.0    0.00    0.00       1         finalizaMemLog() [35]
+                0.00    0.00       1/6202        clkDifMemLog(timespec, timespec, timespec*) [8]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I__Z3usov [24]
-[31]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [31]
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z3usov [29]
+[36]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [36]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I_name_input [25]
-[32]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [32]
+                0.00    0.00       1/1           _GLOBAL__sub_I_name_input [30]
+[37]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [37]
 -----------------------------------------------
-                                  43             ordena(int, int, palavra*, int, int) [33]
-                0.00    0.00       1/1           quicksort(palavra*, int, int, int) [34]
-[33]     0.0    0.00    0.00       1+43      ordena(int, int, palavra*, int, int) [33]
-                0.00    0.00      44/44          particao(int, int, int*, int*, palavra*, int, int) [21]
-                                  43             ordena(int, int, palavra*, int, int) [33]
+                                  51             ordena(int, int, palavra*, int, int) [38]
+                0.00    0.00       1/1           quicksort(palavra*, int, int, int) [39]
+[38]     0.0    0.00    0.00       1+51      ordena(int, int, palavra*, int, int) [38]
+                0.00    0.00      52/52          particao(int, int, int*, int*, palavra*, int, int) [26]
+                                  51             ordena(int, int, palavra*, int, int) [38]
 -----------------------------------------------
                 0.00    0.00       1/1           main [6]
-[34]     0.0    0.00    0.00       1         quicksort(palavra*, int, int, int) [34]
-                0.00    0.00       1/1           ordena(int, int, palavra*, int, int) [33]
+[39]     0.0    0.00    0.00       1         quicksort(palavra*, int, int, int) [39]
+                0.00    0.00       1/1           ordena(int, int, palavra*, int, int) [38]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -272,12 +303,14 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [24] _GLOBAL__sub_I__Z3usov (TP2.cpp) [22] defineFaseMemLog(int) [20] palavra::set_senha(char*)
-  [25] _GLOBAL__sub_I_name_input (main.cpp) [31] __static_initialization_and_destruction_0(int, int) (TP2.cpp) [13] palavra::palavra()
-  [26] parse_args(int, char**) [32] __static_initialization_and_destruction_0(int, int) (main.cpp) [14] palavra::~palavra()
-  [27] ativaMemLog()          [33] ordena(int, int, palavra*, int, int) [11] palavra::operator=(palavra const&)
-  [28] count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [18] fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [15] std::char_traits<char>::compare(char const*, char const*, unsigned long)
-   [8] clkDifMemLog(timespec, timespec, timespec*) [17] leMemLog(long, long, int) [10] __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-  [29] iniciaMemLog(char*)    [21] particao(int, int, int*, int*, palavra*, int, int) [16] bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-   [9] escreveMemLog(long, long, int) [34] quicksort(palavra*, int, int, int) [12] bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-  [30] finalizaMemLog()       [19] palavra::set_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [23] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [29] _GLOBAL__sub_I__Z3usov (TP2.cpp) [36] __static_initialization_and_destruction_0(int, int) (TP2.cpp) [15] palavra::~palavra()
+  [30] _GLOBAL__sub_I_name_input (main.cpp) [37] __static_initialization_and_destruction_0(int, int) (main.cpp) [13] palavra::operator=(palavra&&)
+  [25] insertsort(palavra*, int) [38] ordena(int, int, palavra*, int, int) [16] palavra::operator=(palavra const&)
+  [31] parse_args(int, char**) [22] fix_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [20] std::char_traits<char>::compare(char const*, char const*, unsigned long)
+  [32] ativaMemLog()          [14] leMemLog(long, long, int) [11] std::remove_reference<palavra&>::type&& std::move<palavra&>(palavra&)
+  [33] count_words(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [26] particao(int, int, int*, int*, palavra*, int, int) [18] std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<palavra> >, std::is_move_constructible<palavra>, std::is_move_assignable<palavra> >::value, void>::type std::swap<palavra>(palavra&, palavra&)
+   [8] clkDifMemLog(timespec, timespec, timespec*) [39] quicksort(palavra*, int, int, int) [10] __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [34] iniciaMemLog(char*)    [23] palavra::set_word(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [21] bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+   [9] escreveMemLog(long, long, int) [24] palavra::set_senha(char*) [12] bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [35] finalizaMemLog()       [19] palavra::palavra()     [28] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [27] defineFaseMemLog(int)  [17] palavra::palavra(palavra&&)
