@@ -26,6 +26,7 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S);
 void ordena (int esq, int dir, palavra *A, int M, int S);
 void quicksort (palavra *A, int n, int M, int S);
 void insertsort(palavra *array, int n);
+void selectionsort(palavra *array, int n);
 
 // FUNÇÕES GLOBAIS
 void parse_args(int argc,char ** argv);
