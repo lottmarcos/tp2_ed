@@ -61,34 +61,33 @@ void particao (int esq, int dir, int *i, int *j, palavra *A, int M, int S) {
          contador++;
       }
    }
-   
    int soma = esq+(esq + contador);
    x = A[soma/2]; // obtém o pivô x
-   
-   leMemLog((long int)(&(x)),sizeof(palavra), 0);
-   do {
-    while (x.senha > A[*i].senha) (*i)++;  
-    while (x.senha < A[*j].senha) (*j)--;  
-    if (*i <= *j) {
-      w = A[*i]; A[*i] = A[*j]; A[*j] = w;
-      (*i)++; (*j)--;
-    }
-   } while (*i <= *j);
-   
-}
-void ordena (int esq, int dir, palavra *A, int M, int S) {
-   int i, j; 
-   int n = dir - esq +1;
-   int auxS = sqrt(S);
 
-   if (n < auxS) 
+   int n = dir - esq +1;
+
+   if (n <= S) 
       insertsort(A, n);
    
    else {
-      particao (esq, dir, &i, &j, A, M, S);
-      if (esq < j) ordena (esq, j, A, M, S);
-      if (i < dir) ordena (i, dir, A, M, S);
+   
+      leMemLog((long int)(&(x)),sizeof(palavra), 0);
+      do {
+         while (x.senha > A[*i].senha) (*i)++;  
+         while (x.senha < A[*j].senha) (*j)--;  
+         if (*i <= *j) {
+            w = A[*i]; A[*i] = A[*j]; A[*j] = w;
+            (*i)++; (*j)--;
+         }
+      } while (*i <= *j);
    }
+}
+void ordena (int esq, int dir, palavra *A, int M, int S) {
+   int i, j; 
+   
+   particao (esq, dir, &i, &j, A, M, S);
+   if (esq < j) ordena (esq, j, A, M, S);
+   if (i < dir) ordena (i, dir, A, M, S);
 }
 void quicksort (palavra *A, int n, int M, int S) {
    ordena(0, n-1, A, M, S);
