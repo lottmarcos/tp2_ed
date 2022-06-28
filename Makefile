@@ -23,7 +23,7 @@ all: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(BIN_FOLFER)$(TARGET) $(OBJ)
 
 run:
-	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt" -m 20 -s 15
+	./bin/main.exe -i "./input/entrada.txt" -o "./output/saida.txt" -m 8 -s 9
 	gprof ./bin/main.exe gmon.out > gprof.txt
 
 clean: 

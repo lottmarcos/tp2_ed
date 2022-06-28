@@ -87,7 +87,7 @@ void ordena (int esq, int dir, palavra *A, int M, int S) {
    int n = dir - esq +1;
    
    if (n <= S) 
-      insertsort(A, n);
+      selectionsort(A, esq, dir, n);
    else {
       particao (esq, dir, &i, &j, A, M, S);
       if (esq < j) ordena (esq, j, A, M, S);
@@ -113,9 +113,11 @@ void insertsort(palavra *array, int n) {
       }
    }
 }
-void selectionsort(palavra *array, int n) {
+void selectionsort(palavra *array, int esq, int dir, int n) {
    int i, j, min;
-   for (i = 0; i < n - 1; i++) {
+   n += esq; j = dir;
+
+   for (i = esq; i < n - 1; i++) {
       min = i;
       for (j = i + 1 ; j < n; j++) {
          if (array[j].senha < array[min].senha)
